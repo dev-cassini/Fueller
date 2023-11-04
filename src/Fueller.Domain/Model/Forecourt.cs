@@ -14,4 +14,9 @@ public class Forecourt
     {
         Id = id;
     }
+    
+    #region EF Constructor
+    // ReSharper disable once UnusedMember.Local
+    private Forecourt() { }
+    #endregion
 }

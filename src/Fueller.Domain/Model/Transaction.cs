@@ -36,7 +36,7 @@ public class Transaction
     public int NumberOfLitresDispensed { get; private set; }
     
     public Guid VehicleId { get; }
-    public Vehicle Vehicle { get; }
+    public Vehicle Vehicle { get; } = null!;
     public Guid? PumpId { get; }
     
     public DateTimeOffset? CompletionDateTime => DateTimeFilling?
@@ -58,4 +58,9 @@ public class Transaction
         Vehicle = vehicle;
         PumpId = pump?.Id;
     }
+    
+    #region EF Constructor
+    // ReSharper disable once UnusedMember.Local
+    private Transaction() { }
+    #endregion
 }

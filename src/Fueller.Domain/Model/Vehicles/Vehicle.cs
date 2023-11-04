@@ -2,7 +2,7 @@ using Fueller.Domain.Enums;
 
 namespace Fueller.Domain.Model.Vehicles;
 
-public class Vehicle
+public abstract class Vehicle
 {
     public Guid Id { get; }
     public VehicleType Type { get; }
