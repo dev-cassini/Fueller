@@ -12,9 +12,10 @@ public class AuditRecord<T> where T : IAuditable
     {
         var auditMetadata = new List<AuditMetadata<T>>();
         foreach (var property in typeof(T).GetProperties()
-                     .Where(x => x.SetMethod is not null))
+                     .Where(x => x.SetMethod is not null)
+                     .Where(x => x.PropertyType.IsClass is false || x.PropertyType == typeof(string)))
         {
-            if (property.GetType().IsAssignableTo(typeof(IAuditable)))
+            if (property.PropertyType.IsAssignableTo(typeof(IAuditable)))
             {
                 var auditableProperty = property.GetValue(updated) as IAuditable;
                 auditableProperty!.AddAuditRecord();
