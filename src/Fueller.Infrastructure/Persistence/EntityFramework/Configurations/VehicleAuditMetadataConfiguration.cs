@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Fueller.Infrastructure.Persistence.EntityFramework.Configurations;
 
-public class VehiclesAuditMetadataConfiguration : IEntityTypeConfiguration<AuditMetadata<Vehicle>>
+public class VehicleAuditMetadataConfiguration : IEntityTypeConfiguration<AuditMetadata<Vehicle>>
 {
     public void Configure(EntityTypeBuilder<AuditMetadata<Vehicle>> builder)
     {

@@ -32,3 +32,8 @@ public abstract class AuditableEntity<T> : IAuditable where T : class, IAuditabl
         return true;
     }
 }
+
+/// <remarks>Required for compatibility with Entity Framework.</remarks>>
+public abstract class AuditableEntity : AuditableEntity<IAuditable>
+{
+}

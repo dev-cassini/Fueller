@@ -3,7 +3,7 @@ using Fueller.Domain.Model.Audit;
 
 namespace Fueller.Domain.Model.Vehicles;
 
-public abstract class Vehicle : AuditableEntity<Vehicle>
+public abstract class Vehicle : AuditableEntity
 {
     public Guid Id { get; }
     public VehicleType Type { get; }
