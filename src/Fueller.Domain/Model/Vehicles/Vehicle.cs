@@ -1,8 +1,9 @@
 using Fueller.Domain.Enums;
+using Fueller.Domain.Model.Audit;
 
 namespace Fueller.Domain.Model.Vehicles;
 
-public abstract class Vehicle
+public abstract class Vehicle : AuditableEntity<Vehicle>
 {
     public Guid Id { get; }
     public VehicleType Type { get; }

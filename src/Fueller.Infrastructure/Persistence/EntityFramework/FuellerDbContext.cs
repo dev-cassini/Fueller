@@ -1,5 +1,6 @@
 using System.Reflection;
 using Fueller.Domain.Model;
+using Fueller.Domain.Model.Audit;
 using Fueller.Domain.Model.Vehicles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -12,6 +13,8 @@ public class FuellerDbContext : DbContext
     public DbSet<Lane> Lanes { get; set; } = null!;
     public DbSet<Pump> Pumps { get; set; } = null!;
     public DbSet<Vehicle> Vehicles { get; set; } = null!;
+    public DbSet<AuditRecord<Vehicle>> VehiclesAudit { get; set; } = null!;
+    public DbSet<AuditMetadata<Vehicle>> VehiclesAuditMetadata { get; set; } = null!;
     public DbSet<Transaction> Transactions { get; set; } = null!;
     
     public FuellerDbContext(DbContextOptions<FuellerDbContext> options) : base(options) { }

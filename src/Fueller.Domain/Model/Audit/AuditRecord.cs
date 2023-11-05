@@ -5,9 +5,9 @@ namespace Fueller.Domain.Model.Audit;
 public class AuditRecord<T> where T : IAuditable
 {
     public Guid Id { get; } = Guid.NewGuid();
-    public T Auditable { get; }
-    public IEnumerable<AuditMetadata<T>> Metadata { get; }
-    
+    public T Auditable { get; } = default!;
+    public IEnumerable<AuditMetadata<T>> Metadata { get; } = null!;
+
     public AuditRecord(T original, T updated)
     {
         var auditMetadata = new List<AuditMetadata<T>>();
@@ -39,4 +39,9 @@ public class AuditRecord<T> where T : IAuditable
         Auditable = updated.DeepClone();
         Metadata = auditMetadata;
     }
+    
+    #region EF Constructor
+    // ReSharper disable once UnusedMember.Local
+    private AuditRecord() { }
+    #endregion
 }
